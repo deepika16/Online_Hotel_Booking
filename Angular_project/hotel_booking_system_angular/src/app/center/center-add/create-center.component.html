@@ -1,0 +1,95 @@
+<div class="header">
+  <h1 class="page-header">
+    {{isUpdate ? "Update Center Details": "Add Center"}}
+  </h1>
+</div>
+<div id="page-inner">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Advanced Tables -->
+      <div class="card">
+        <div class="card-content">
+          <form (ngSubmit)="onSubmit()" ngNativeValidate style="width: 70%; color: black;">
+            
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-4 col-form-label">Select Location</label>
+              <div class="col-sm-8">
+                <select style="height: 40px;" type="text" class="form-control" name="center_location_id"
+                  [(ngModel)]="center.center_location_id" #center_type_id="ngModel" [value]="center.center_location_id"
+                  required>
+                  <option value="0">Please Select</option>
+                  <option *ngFor='let location_data of location' [value]="location_data.location_id">
+                    {{location_data.location_name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-4 col-form-label">Hotel Name</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="center_name" required
+                    [(ngModel)]="center.center_name" name="center_name">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-4 col-form-label">Hotel Booking Cost</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="center_booking_cost" required
+                    [(ngModel)]="center.center_booking_cost" name="center_booking_cost">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-4 col-form-label">Contact No.</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="center_contact" required
+                    [(ngModel)]="center.center_contact" name="center_contact">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-4 col-form-label">Email ID</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="center_email" required
+                    [(ngModel)]="center.center_email" name="center_email">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-4 col-form-label">Total Capacity</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="center_total_capacity" required
+                    [(ngModel)]="center.center_total_capacity" name="center_total_capacity">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-4 col-form-label">Services Provided</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="center_services" required
+                    [(ngModel)]="center.center_services" name="center_services">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-4 col-form-label">Hotel Descriptions</label>
+              <div class="col-sm-8">
+
+                <textarea type="text" class="form-control" id="center_description" required [(ngModel)]="center.center_description"
+                    name="center_description" style="height: 240px !important"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-4 col-form-label">Hotel Image</label>
+              <div class="col-sm-8">
+                <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".jpeg,.png,.jpg">
+              </div>
+            </div>
+        <div style="text-align: right; margin-top: 25px;">
+          <input type="hidden" class="form-control" id="center_image_filename" required [(ngModel)]="center.center_image_filename"
+          name="center_image_filename">
+          <button type="submit" class="btn btn-success" style="width: 150px;">Submit</button>&nbsp;&nbsp;
+          <button type="reset" class="btn btn-danger" style="width: 150px;">Reset</button>
+        </div>        
+      </form>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
